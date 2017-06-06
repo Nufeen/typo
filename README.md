@@ -66,7 +66,7 @@ typo(string, { header: true })
 | *Как ничего не понять и не подать виду* | *Как![](assets/space.png)ничего не![](assets/space.png)понять и![](assets/space.png)не![](assets/space.png)подать виду* |
 
 
-### hyphern
+### hyphen
 
 расстановка переносов:
 ```js

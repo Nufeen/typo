@@ -30,7 +30,7 @@ const patterns = {
   ],
   // Регулярки для переносов взяты с
   // http://vyachet.ru/hyphen-russian-html-text/
-  hypherns: [
+  hyphens: [
     [new RegExp(`(${zn})(${all}${all})`, 'ig'), `$1${shy}$2`],
     [new RegExp(`(${glas})(${glas}${all})`, 'ig'), `$1${shy}$2`],
     [new RegExp(`(${glas}${sogl})(${sogl}${glas})`, 'ig'), `$1${shy}$2`],
@@ -41,7 +41,7 @@ const patterns = {
 }
 
 const defaults = {
-  hypherns: false,
+  hyphens: false,
   digits: false,
   digitsR: false,
   header: false
