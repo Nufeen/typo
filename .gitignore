@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+
+*.swp
+.idea
+.vscode
+
+node_modules
+.babel_cache
+
+npm-debug.log
+lerna-debug.log
+yarn-error.log
+
+build
