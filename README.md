@@ -51,7 +51,8 @@ typo(string, { digitsR: true })
 ```
 | Before | After |
 | --- | --- |
-| TODO | TODO |
+| ...купите 200 граммов водки и 30 граммов огурца | ...купите 200![](assets/space.png)граммов водки и 30![](assets/space.png)граммов огурца |
+
 
 
 ### header:
@@ -62,7 +63,7 @@ typo(string, { header: true })
 ```
 | Before | After |
 | --- | --- |
-| TODO | TODO |
+| Как ничего не понять и не подать виду | Как![](assets/space.png)ничего не![](assets/space.png)понять и![](assets/space.png)не![](assets/space.png)подать виду |
 
 
 ### hyphern
