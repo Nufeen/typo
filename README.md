@@ -25,7 +25,7 @@ typo(string)
 
 | Before | After |
 | --- | --- |
-| не в силах выдержать несовершенства мира - закрыл я очи | не![](assets/space.png)в![](assets/space.png)силах выдержать несовершенства мира![](assets/space.png)&mdash; закрыл я очи |
+| *не в силах выдержать несовершенства мира - закрыл я очи* | *не![](assets/space.png)в![](assets/space.png)силах выдержать несовершенства мира![](assets/space.png)&mdash; закрыл я очи* |
 
 ## Options
 
@@ -40,7 +40,7 @@ typo(string, { digits: true })
 
 | Before | After |
 | --- | --- |
-| ...купите 200 граммов водки и 30 граммов огурца | ...купите![](assets/space.png)200![](assets/space.png)граммов водки и![](assets/space.png)30![](assets/space.png)граммов огурца |
+| *...купите 200 граммов водки и 30 граммов огурца* | *...купите![](assets/space.png)200![](assets/space.png)граммов водки и![](assets/space.png)30![](assets/space.png)граммов огурца* |
 
 ### digitsR
 
@@ -51,7 +51,7 @@ typo(string, { digitsR: true })
 ```
 | Before | After |
 | --- | --- |
-| ...купите 200 граммов водки и 30 граммов огурца | ...купите 200![](assets/space.png)граммов водки и 30![](assets/space.png)граммов огурца |
+| *...купите 200 граммов водки и 30 граммов огурца* | *...купите 200![](assets/space.png)граммов водки и 30![](assets/space.png)граммов огурца* |
 
 
 
@@ -63,7 +63,7 @@ typo(string, { header: true })
 ```
 | Before | After |
 | --- | --- |
-| Как ничего не понять и не подать виду | Как![](assets/space.png)ничего не![](assets/space.png)понять и![](assets/space.png)не![](assets/space.png)подать виду |
+| *Как ничего не понять и не подать виду* | *Как![](assets/space.png)ничего не![](assets/space.png)понять и![](assets/space.png)не![](assets/space.png)подать виду* |
 
 
 ### hyphern
