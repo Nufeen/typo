@@ -12,7 +12,7 @@ const preposiciones = {
 const patterns = {
   // Привязка предлогов, замена тире (по умолчанию)
   common: [
-    [new RegExp(' (-|–|—) ', 'g'), '&nbsp;— '],
+    [new RegExp(' (-|–|—) ', 'g'), '&nbsp;&mdash; '],
     [new RegExp(' {2}', 'g'), ' '],
     [new RegExp(` (${preposiciones.corto}) `, 'gi'), ' $1&nbsp;']
   ],
@@ -49,7 +49,7 @@ const defaults = {
 
 // typo :: String -> Object -> String
 export default function typo(s, options = defaults) {
-  if (s == null) {
+  if (s == null || typeof s != 'string') {
     return s
   }
 
