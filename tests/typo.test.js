@@ -60,6 +60,11 @@ describe('Common patterns: preposiciones', function() {
     typo(s1).should.equal(s2)
   })
   it('should bind preposiciones', () => {
+    let s1 = 'Одно но'
+    let s2 = 'Одно но'
+    typo(s1).should.equal(s2)
+  })
+  it('should bind preposiciones', () => {
     let s1 = 'Но об одном я не знал'
     let s2 = 'Но&nbsp;об&nbsp;одном я не&nbsp;знал'
     typo(s1).should.equal(s2)

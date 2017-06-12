@@ -16,7 +16,7 @@ const patterns = {
     [new RegExp(' {2}', 'g'), ' '],
     [new RegExp(` (${preposiciones.corto}) `, 'gi'), ' $1&nbsp;'],
     [new RegExp(`\&nbsp\;(${preposiciones.corto}) `, 'gi'), '&nbsp;$1&nbsp;'],
-    [new RegExp(`$(${preposiciones.corto}) `, 'gi'), '$1&nbsp;']
+    [new RegExp(`^(${preposiciones.corto}) `, 'gi'), '$1&nbsp;']
   ],
   // При достаточно широкой колонке цифры привязываются с двух сторон
   digits: [
