@@ -46,7 +46,7 @@ describe('Common patterns', function() {
 })
 
 describe('Common patterns: preposiciones', function() {
-  // There ins no need to test common cases,
+  // There is no need to test common cases,
   // test will be huge and evident,
   // this part tests tricky cases instead
   it('should bind preposiciones', () => {
