@@ -1,8 +1,8 @@
-const all = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
-const glas = '[аеёиоуыэюя]' // vowels
-const sogl = '[бвгджзклмнпрстфхцчшщ]' //consonants
-const zn = '[йъь]'
-const shy = '\xAD'
+const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
+const vowel = '[аеёиоуыэюя]'
+const consonant = '[бвгджзклмнпрстфхцчшщ]'
+const sign = '[йъь]'
+const shy = '&shy;' // '\xAD'
 
 const preposiciones = {
   corto: 'и|а|в|к|у|с|о|не|но|на|из|от|об|до|по',
@@ -10,7 +10,7 @@ const preposiciones = {
 }
 
 const patterns = {
-  // Привязка предлогов, замена тире (по умолчанию)
+
   common: [
     [new RegExp(' (-|–|—) ', 'g'), '&nbsp;&mdash; '],
     [new RegExp(' {2}', 'g'), ' '],
@@ -18,27 +18,27 @@ const patterns = {
     [new RegExp(`\&nbsp\;(${preposiciones.corto}) `, 'gi'), '&nbsp;$1&nbsp;'],
     [new RegExp(`^(${preposiciones.corto}) `, 'gi'), '$1&nbsp;']
   ],
-  // При достаточно широкой колонке цифры привязываются с двух сторон
+
   digits: [
     [new RegExp(' (\\d+) ', 'g'), '&nbsp;$1&nbsp;']
   ],
-  // В некоторых случаях имеет смысл привязывать цифры слева
+
   digitsR: [
     [new RegExp(' (\\d+) ', 'g'), ' $1&nbsp;']
   ],
-  // В заголовках приклеиваются длинные предлоги
+
   header: [
     [new RegExp(` (${preposiciones.largo}) `, 'gi'), ' $1&nbsp;']
   ],
-  // Регулярки для переносов взяты с
-  // http://vyachet.ru/hyphen-russian-html-text/
+  // Регулярные выражения для переносов взяты
+  // c http://vyachet.ru/hyphen-russian-html-text/
   hyphens: [
-    [new RegExp(`(${zn})(${all}${all})`, 'ig'), `$1${shy}$2`],
-    [new RegExp(`(${glas})(${glas}${all})`, 'ig'), `$1${shy}$2`],
-    [new RegExp(`(${glas}${sogl})(${sogl}${glas})`, 'ig'), `$1${shy}$2`],
-    [new RegExp(`(${sogl}${glas})(${sogl}${glas})`, 'ig'), `$1${shy}$2`],
-    [new RegExp(`(${glas}${sogl})(${sogl}${sogl}${glas})`, 'ig'), `$1${shy}$2`],
-    [new RegExp(`(${glas}${sogl}${sogl})(${sogl}${sogl}${glas})`, 'ig'), `$1${shy}$2`]
+    [new RegExp(`(${sign})(${any}${any})`, 'ig'), `$1${shy}$2`],
+    [new RegExp(`(${vowel})(${vowel}${any})`, 'ig'), `$1${shy}$2`],
+    [new RegExp(`(${vowel}${consonant})(${consonant}${vowel})`, 'ig'), `$1${shy}$2`],
+    [new RegExp(`(${consonant}${vowel})(${consonant}${vowel})`, 'ig'), `$1${shy}$2`],
+    [new RegExp(`(${vowel}${consonant})(${consonant}${consonant}${vowel})`, 'ig'), `$1${shy}$2`],
+    [new RegExp(`(${vowel}${consonant}${consonant})(${consonant}${consonant}${vowel})`, 'ig'), `$1${shy}$2`]
   ]
 }
 
@@ -59,11 +59,5 @@ export default function typo(s, options = defaults) {
     return options[key] ? acc.concat(patterns[key]) : acc
   }, patterns.common)
 
-  let out = s.toString()
-
-  P.forEach(p => {
-    out = out.replace(p[0], p[1])
-  })
-
-  return out
+  return P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
 }
