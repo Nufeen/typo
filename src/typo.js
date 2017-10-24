@@ -3,6 +3,7 @@ const vowel = '[аеёиоуыэюя]'
 const consonant = '[бвгджзклмнпрстфхцчшщ]'
 const sign = '[йъь]'
 const shy = '&shy;' // '\xAD'
+const nonBreakingHyphen = '&#8209;'
 
 const preposiciones = {
   corto: 'и|а|в|к|у|с|о|не|но|на|из|от|об|до|по',
@@ -14,13 +15,16 @@ const patterns = {
   common: [
     [new RegExp(' (-|–|—) ', 'g'), '&nbsp;&mdash; '],
     [new RegExp(' {2}', 'g'), ' '],
+    [new RegExp('-(й|я|е) ', 'g'), `${nonBreakingHyphen}$1 `], // TODO TESTS
+    [new RegExp('-(й|я|е) ', 'g'), `${nonBreakingHyphen}$1$nbsp;`], // TODO TESTS
     [new RegExp(` (${preposiciones.corto}) `, 'gi'), ' $1&nbsp;'],
-    [new RegExp(`\&nbsp\;(${preposiciones.corto}) `, 'gi'), '&nbsp;$1&nbsp;'],
+    [new RegExp(`\&nbsp\;(${preposiciones.corto}) `, 'gi'), '&nbsp;$1&nbsp;'], 
     [new RegExp(`^(${preposiciones.corto}) `, 'gi'), '$1&nbsp;']
   ],
 
   digits: [
-    [new RegExp(' (\\d+) ', 'g'), '&nbsp;$1&nbsp;']
+    [new RegExp(' (\\d+) ', 'g'), '&nbsp;$1&nbsp;'],
+    [new RegExp('\&nbsp\;(\\d+) ', 'g'), '&nbsp;$1&nbsp;'] // TODO TESTS
   ],
 
   digitsR: [
