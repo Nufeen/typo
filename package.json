@@ -1,19 +1,18 @@
 {
-  "name": "typo",
-  "version": "0.1.0",
+  "name": "ru-typo",
+  "version": "1.0.0",
   "description": "Russian typography script",
   "main": "src/typo.js",
   "scripts": {
     "test": "mocha tests --compilers js:babel-core/register --reporter nyan",
-    "test2": "mocha tests --compilers js:babel-register --reporter nyan",
     "tests": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nufeen/typo.git"
   },
-  "author": "Darwin",
-  "license": "ISC",
+  "author": "Nufeen",
+  "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/Nufeen/typo/issues"
   },
