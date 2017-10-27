@@ -1,6 +1,6 @@
 {
   "name": "ru-typo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Russian typography script",
   "main": "src/typo.js",
   "scripts": {

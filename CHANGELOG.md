@@ -7,3 +7,6 @@
 
 ## 1.0.1
 - Edit readme
+
+## 1.0.2
+- Edit readme
