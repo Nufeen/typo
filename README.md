@@ -70,7 +70,7 @@ typo(string, { header: true })
 
 расстановка переносов:
 ```js
-typo(string, { hyphern: true })
+typo(string, { hyphens: true })
 ```
 | Before | After |
 | --- | --- |
