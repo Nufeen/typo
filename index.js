@@ -1,3 +1,3 @@
-import typo from './src/typo.js'
+var typo = require('./build/bundle.js')
 
 module.exports = typo

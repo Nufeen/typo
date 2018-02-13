@@ -1,4 +1,6 @@
-# Типограф
+# Типограф (Russian typography script)
+
+*Documentation below will remain in russian since this package is language-specific and seems to be needed by russian-speaking users only.*
 
 Cкрипт для расстановки переносов и привязывания предлогов в русскоязычных текстах.
 
@@ -30,7 +32,7 @@ typo(string)
 ## Options
 
 
-### digits:
+### digits
 
 При достаточно широкой колонке цифры привязываются с двух сторон:
 
@@ -55,7 +57,7 @@ typo(string, { digitsR: true })
 
 
 
-### header:
+### header
 
 В заголовках приклеиваются длинные предлоги:
 ```js
@@ -67,6 +69,10 @@ typo(string, { header: true })
 
 
 ### hyphen
+
+С большой вероятностью вам это не нужно, в большей части браузеров на сегодня уже работают css переносы(с указанным в html языком): https://developer.mozilla.org/ru/docs/Web/CSS/hyphens#Browser_compatibility
+
+Тем не менее, оставляю секцию из соображений консистентности.
 
 расстановка переносов:
 ```js
