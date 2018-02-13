@@ -1,10 +1,10 @@
 {
   "name": "ru-typo",
-  "version": "1.0.4",
+  "version": "2.0.4",
   "description": "Russian typography script",
-  "main": "src/typo.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha tests --compilers js:babel-core/register --reporter nyan",
+    "test": "mocha tests  --compilers js:babel-core/register --reporter nyan",
     "tests": "npm test -- --watch",
     "build": "rollup -c"
   },
@@ -19,18 +19,17 @@
   },
   "homepage": "https://github.com/Nufeen/typo#readme",
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "eslint": "^4.0.0",
-    "eslint-plugin-prettier": "^2.1.1",
-    "mocha": "^3.4.2",
-    "prettier": "^1.4.4",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.17.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "mocha": "^5.0.0",
+    "prettier": "^1.10.2",
     "rollup": "^0.55.5",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-node-resolve": "^3.0.2",
-    "should": "^11.2.1"
+    "should": "^13.2.1"
   }
 }

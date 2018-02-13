@@ -1,5 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve'
+import babel from 'rollup-plugin-babel'
 
 export default {
   input: 'src/typo.js',
@@ -10,7 +10,19 @@ export default {
   plugins: [
     resolve(),
     babel({
-      exclude: 'node_modules/**'
-    })
+      babelrc: false,
+      exclude: 'node_modules/**',
+      presets: [
+        [
+          'env',
+          {
+            modules: false
+          }
+        ]
+      ],
+      plugins: [
+        'external-helpers'
+      ]
+    }),
   ],
-};
+}
