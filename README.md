@@ -56,7 +56,6 @@ typo(string, { digitsR: true })
 | *...купите 200 граммов водки и 30 граммов огурца* | *...купите 200![](assets/space.png)граммов водки и 30![](assets/space.png)граммов огурца* |
 
 
-
 ### header
 
 В заголовках приклеиваются длинные предлоги:
@@ -70,9 +69,7 @@ typo(string, { header: true })
 
 ### hyphen
 
-С большой вероятностью вам это не нужно, в большей части браузеров на сегодня уже работают css переносы(с указанным в html языком): https://developer.mozilla.org/ru/docs/Web/CSS/hyphens#Browser_compatibility
-
-Тем не менее, оставляю секцию из соображений консистентности.
+Обратите внимание, в части браузеров на сегодня уже работают нативные css переносы (с указанным в html языком): https://developer.mozilla.org/ru/docs/Web/CSS/hyphens#Browser_compatibility
 
 расстановка переносов:
 ```js
@@ -82,4 +79,4 @@ typo(string, { hyphens: true })
 | --- | --- |
 | В это время Ленин скрывается на конспиративной квартире. |  ```В&nbsp;это вре&shy;мя Ле&shy;нин скры&shy;ва&shy;ет&shy;ся на&nbsp;кон&shy;спи&shy;ратив&shy;ной квар&shy;ти&shy;ре.``` |
 
-Регулярные выражения для переносов взяты с http://vyachet.ru/hyphen-russian-html-text/
+Регулярные выражения для переносов взяты с http://vyachet.ru/hyphen-russian-html-text/ (модифицированный алгоритм Христова).

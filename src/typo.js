@@ -28,9 +28,12 @@ const patterns = {
 
   digitsR: [[new RegExp(' (\\d+) ', 'g'), ' $1&nbsp;']],
 
+  // LIKELY TO BE RENAMED AND EXTENDED (FOR MORE GENERAL DASH HANDLING),
+  // USE WITH CAUTION
+  ndash: [[new RegExp('\-', 'g'), '&ndash;']], // TODO DOC SECTION
+
   header: [[new RegExp(` (${preposiciones.largo}) `, 'gi'), ' $1&nbsp;']],
-  // Регулярные выражения для переносов взяты
-  // c http://vyachet.ru/hyphen-russian-html-text/
+
   hyphens: [
     [new RegExp(`(${sign})(${any}${any})`, 'ig'), `$1${shy}$2`],
     [new RegExp(`(${vowel})(${vowel}${any})`, 'ig'), `$1${shy}$2`],
