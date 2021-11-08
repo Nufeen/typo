@@ -70,7 +70,10 @@ const defaults = {
 }
 
 // typo :: String -> Object -> String
-export default function typo(s: string, options = defaults) {
+export default function typo<T>(
+  s: T,
+  options: Partial<typeof defaults> = defaults
+): T | string {
   if (s == null || typeof s !== 'string') {
     return s
   }
