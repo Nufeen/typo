@@ -1,11 +1,12 @@
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 
 export default {
   input: 'src/typo.ts',
   output: {
     format: 'cjs',
-    file: 'build/bundle.js',
+    dir: 'build',
   },
   plugins: [
     resolve(),
@@ -25,5 +26,6 @@ export default {
       ],
       plugins: ['@babel/plugin-external-helpers'],
     }),
+    typescript(),
   ],
 }
