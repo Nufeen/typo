@@ -1,5 +1,6 @@
-import 'should'
 import typo from '../src/typo'
+
+import should from 'should'
 
 describe('tests just work', () => {
   describe('typo is loaded correctly and test command works', () => {
