@@ -2,23 +2,27 @@
   "name": "ru-typo",
   "version": "2.0.5",
   "description": "Russian typography script",
-  "main": "build/typo.js",
-  "types": "build/typo.d.ts",
-  "scripts": {
-    "test": "mocha",
-    "tests": "npm test -- --watch",
-    "build": "rollup -c"
+  "homepage": "https://github.com/Nufeen/typo#readme",
+  "bugs": {
+    "url": "https://github.com/Nufeen/typo/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nufeen/typo.git"
   },
-  "author": "Nufeen",
   "license": "WTFPL",
-  "bugs": {
-    "url": "https://github.com/Nufeen/typo/issues"
+  "author": "Nufeen",
+  "main": "build/typo.js",
+  "types": "build/typo.d.ts",
+  "directories": {
+    "lib": "./src",
+    "test": "./test"
   },
-  "homepage": "https://github.com/Nufeen/typo#readme",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "mocha",
+    "tests": "npm test -- --watch"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.0",
