@@ -2,34 +2,43 @@
   "name": "ru-typo",
   "version": "2.0.5",
   "description": "Russian typography script",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha tests  --compilers js:babel-core/register --reporter nyan",
-    "tests": "npm test -- --watch",
-    "build": "rollup -c"
+  "homepage": "https://github.com/Nufeen/typo#readme",
+  "bugs": {
+    "url": "https://github.com/Nufeen/typo/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nufeen/typo.git"
   },
-  "author": "Nufeen",
   "license": "WTFPL",
-  "bugs": {
-    "url": "https://github.com/Nufeen/typo/issues"
+  "author": "Nufeen",
+  "main": "build/typo.js",
+  "types": "build/typo.d.ts",
+  "directories": {
+    "lib": "./src",
+    "test": "./test"
   },
-  "homepage": "https://github.com/Nufeen/typo#readme",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "mocha",
+    "tests": "npm test -- --watch"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.17.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "mocha": "^5.0.0",
-    "prettier": "^1.10.2",
-    "rollup": "^0.55.5",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-node-resolve": "^3.0.2",
-    "should": "^13.2.1"
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@babel/register": "^7.16.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "eslint": "^8.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^9.1.3",
+    "prettier": "^2.4.1",
+    "rollup": "^2.59.0",
+    "should": "^13.2.3",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   }
 }

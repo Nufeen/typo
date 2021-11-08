@@ -1,28 +1,20 @@
-import resolve from 'rollup-plugin-node-resolve'
-import babel from 'rollup-plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import babel from '@rollup/plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 
 export default {
-  input: 'src/typo.js',
+  input: 'src/typo.ts',
   output: {
     format: 'cjs',
-    file: 'build/bundle.js',
+    exports: 'auto',
+    dir: 'build',
   },
   plugins: [
     resolve(),
     babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: [
-        [
-          'env',
-          {
-            modules: false
-          }
-        ]
-      ],
-      plugins: [
-        'external-helpers'
-      ]
+      extensions: ['.ts'],
+      babelHelpers: 'bundled',
     }),
+    typescript(),
   ],
 }

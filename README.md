@@ -7,12 +7,6 @@ Cкрипт для расстановки переносов и привязыв
 
 ## Installation
 
-В виде es6-модуля:
-```js
-import typo from './myPath/typo.js'
-```
-
-В виде npm-пакета:
 ```
 npm install ru-typo
 ```
