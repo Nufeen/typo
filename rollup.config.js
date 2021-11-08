@@ -6,25 +6,14 @@ export default {
   input: 'src/typo.ts',
   output: {
     format: 'cjs',
+    exports: 'auto',
     dir: 'build',
   },
   plugins: [
     resolve(),
     babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
       extensions: ['.ts'],
-      babelHelpers: 'external',
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            modules: false,
-          },
-        ],
-        '@babel/preset-typescript',
-      ],
-      plugins: ['@babel/plugin-external-helpers'],
+      babelHelpers: 'bundled',
     }),
     typescript(),
   ],

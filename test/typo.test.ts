@@ -1,6 +1,5 @@
-import typo from '../src/typo.js'
-
-const should = require('should');
+import 'should'
+import typo from '../src/typo'
 
 describe('tests just work', () => {
   describe('typo is loaded correctly and test command works', () => {
@@ -15,8 +14,8 @@ describe('typo works correctly on non-string types', () => {
   describe('#indexof()', () => {
     it('should return what it gets if type is not a String', () => {
       typo(42).should.equal(42)
-      typo([1,2,3]).should.eql([1,2,3])
-      typo({a: 1}).should.eql({a: 1})
+      typo([1, 2, 3]).should.eql([1, 2, 3])
+      typo({ a: 1 }).should.eql({ a: 1 })
     })
     it('should proceed NaN, null and zero values correctly', () => {
       typo(0).should.equal(0)
@@ -96,6 +95,6 @@ describe('Hyphens', () => {
   it('should add hyphens', () => {
     let s1 = 'Но об одном я не знал'
     let s2 = 'Но&nbsp;об&nbsp;од&shy;ном я не&nbsp;знал'
-    typo(s1, {hyphens: true}).should.equal(s2)
+    typo(s1, { hyphens: true }).should.equal(s2)
   })
 })
