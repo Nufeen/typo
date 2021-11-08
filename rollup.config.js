@@ -1,8 +1,8 @@
-import resolve from 'rollup-plugin-node-resolve'
-import babel from 'rollup-plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import babel from '@rollup/plugin-babel'
 
 export default {
-  input: 'src/typo.js',
+  input: 'src/typo.ts',
   output: {
     format: 'cjs',
     file: 'build/bundle.js',
@@ -12,17 +12,18 @@ export default {
     babel({
       babelrc: false,
       exclude: 'node_modules/**',
+      extensions: ['.ts'],
+      babelHelpers: 'external',
       presets: [
         [
-          'env',
+          '@babel/preset-env',
           {
-            modules: false
-          }
-        ]
+            modules: false,
+          },
+        ],
+        '@babel/preset-typescript',
       ],
-      plugins: [
-        'external-helpers'
-      ]
+      plugins: ['@babel/plugin-external-helpers'],
     }),
   ],
 }
