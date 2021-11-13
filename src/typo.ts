@@ -10,7 +10,18 @@ const preposiciones = {
   largo: 'над|под|как',
 }
 
-const patterns: Record<string, Array<[RegExp, string]>> = {
+const defaultOptions = {
+  hyphens: false,
+  digits: false,
+  digitsR: false,
+  header: false,
+  ndash: false,
+}
+
+const patterns: Record<
+  keyof typeof defaultOptions | 'common',
+  Array<[RegExp, string]>
+> = {
   common: [
     [new RegExp(' (-|–|—) ', 'g'), '&nbsp;&mdash; '],
     [new RegExp(' {2}', 'g'), ' '],
@@ -62,17 +73,10 @@ const patterns: Record<string, Array<[RegExp, string]>> = {
   ],
 }
 
-const defaults = {
-  hyphens: false,
-  digits: false,
-  digitsR: false,
-  header: false,
-}
-
 // typo :: String -> Object -> String
 export default function typo<T>(
   s: T,
-  options: Partial<typeof defaults> = defaults
+  options: Partial<typeof defaultOptions> = defaultOptions
 ): T | string {
   if (s == null || typeof s !== 'string') {
     return s
