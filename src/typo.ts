@@ -4,6 +4,8 @@ const consonant = '[бвгджзклмнпрстфхцчшщ]'
 const sign = '[йъь]'
 const shy = '&shy;' // '\xAD'
 const nonBreakingHyphen = '&#8209;'
+const openingQuote = '«'
+const closingQuote = '»'
 
 const preposiciones = {
   corto: 'и|а|в|к|у|с|о|не|но|на|из|от|об|до|по|во|за|со',
@@ -16,6 +18,7 @@ const defaultOptions = {
   digitsR: false,
   header: false,
   ndash: false,
+  quotes: false,
 }
 
 const patterns: Record<
@@ -70,6 +73,11 @@ const patterns: Record<
       ),
       `$1${shy}$2`,
     ],
+  ],
+
+  quotes: [
+    [new RegExp(`"(${any}|[0-9])`, 'gmi'), `${openingQuote}$1`],
+    [new RegExp(`"`, 'gmi'), closingQuote],
   ],
 }
 
