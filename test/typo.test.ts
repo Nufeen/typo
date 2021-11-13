@@ -118,4 +118,10 @@ describe('Quotes', () => {
     let s2 = 'Не&nbsp;стоит использовать «1984» как инструкцию'
     typo(s1, { quotes: true }).should.equal(s2)
   })
+
+  it('should handle simple case of multiple quoted parts', () => {
+    let s1 = 'Голосование: "Быть" против "Не быть"'
+    let s2 = 'Голосование: «Быть» против «Не быть»'
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
 })
