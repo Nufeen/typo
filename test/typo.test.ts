@@ -99,3 +99,23 @@ describe('Hyphens', () => {
     typo(s1, { hyphens: true }).should.equal(s2)
   })
 })
+
+describe('Quotes', () => {
+  it('should transform quotes', () => {
+    let s1 = 'Текст "в кавычках" после'
+    let s2 = 'Текст «в кавычках» после'
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
+
+  it('should handle simple case of nested quotes', () => {
+    let s1 = 'Обратиться в ООО "Компания "Рога и Ко."'
+    let s2 = 'Обратиться в&nbsp;ООО «Компания «Рога и&nbsp;Ко.»'
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
+
+  it('should handle quoted digits', () => {
+    let s1 = 'Не стоит использовать "1984" как инструкцию'
+    let s2 = 'Не&nbsp;стоит использовать «1984» как инструкцию'
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
+})
