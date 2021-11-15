@@ -4,13 +4,27 @@ const consonant = '[бвгджзклмнпрстфхцчшщ]'
 const sign = '[йъь]'
 const shy = '&shy;' // '\xAD'
 const nonBreakingHyphen = '&#8209;'
+const openingQuote = '«'
+const closingQuote = '»'
 
 const preposiciones = {
   corto: 'и|а|в|к|у|с|о|не|но|на|из|от|об|до|по|во|за|со',
   largo: 'над|под|как',
 }
 
-const patterns: Record<string, Array<[RegExp, string]>> = {
+const defaultOptions = {
+  hyphens: false,
+  digits: false,
+  digitsR: false,
+  header: false,
+  ndash: false,
+  quotes: false,
+}
+
+const patterns: Record<
+  keyof typeof defaultOptions | 'common',
+  Array<[RegExp, string]>
+> = {
   common: [
     [new RegExp(' (-|–|—) ', 'g'), '&nbsp;&mdash; '],
     [new RegExp(' {2}', 'g'), ' '],
@@ -60,19 +74,17 @@ const patterns: Record<string, Array<[RegExp, string]>> = {
       `$1${shy}$2`,
     ],
   ],
-}
 
-const defaults = {
-  hyphens: false,
-  digits: false,
-  digitsR: false,
-  header: false,
+  quotes: [
+    [new RegExp(`"(${any}|[0-9])`, 'gmi'), `${openingQuote}$1`],
+    [new RegExp(`"`, 'gmi'), closingQuote],
+  ],
 }
 
 // typo :: String -> Object -> String
 export default function typo<T>(
   s: T,
-  options: Partial<typeof defaults> = defaults
+  options: Partial<typeof defaultOptions> = defaultOptions
 ): T | string {
   if (s == null || typeof s !== 'string') {
     return s
