@@ -25,3 +25,11 @@
 ## 2.0.4
 
 - Fix paths to correct cjs build
+
+## 3.0.0
+
+- Move to typescript
+
+## 3.1.0
+
+- Add typographic quotes option
