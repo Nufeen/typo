@@ -1,3 +1,5 @@
+const sanitize = require('xss')
+
 const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
 const vowel = '[аеёиоуыэюя]'
 const consonant = '[бвгджзклмнпрстфхцчшщ]'
@@ -94,5 +96,7 @@ export default function typo<T>(
     return options[key] ? acc.concat(patterns[key]) : acc
   }, patterns.common)
 
-  return P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
+  const reducedP = P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
+
+  return sanitize(reducedP)
 }
