@@ -33,3 +33,7 @@
 ## 3.1.0
 
 - Add typographic quotes option
+
+## 4.0.0
+
+- Fix XSS vulnerability by using `xss` library for sanitization
