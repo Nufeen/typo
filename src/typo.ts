@@ -1,4 +1,4 @@
-const sanitize = require('xss')
+import { whiteList, default as sanitize } from 'xss';
 
 const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
 const vowel = '[аеёиоуыэюя]'
@@ -98,5 +98,5 @@ export default function typo<T>(
 
   const reducedP = P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
 
-  return sanitize(reducedP)
+  return sanitize(reducedP, { whiteList: { ...whiteList, nobr: [] } });
 }

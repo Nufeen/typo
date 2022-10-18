@@ -125,3 +125,12 @@ describe('Quotes', () => {
     typo(s1, { quotes: true }).should.equal(s2)
   })
 })
+
+describe('Tags sanitization', () => {
+  it('should return <nobr /> as is', () => {
+    const actual = 'Но об одном <nobr>я не знал</nobr>'
+    const expected = 'Но&nbsp;об&nbsp;одном <nobr>я не&nbsp;знал</nobr>';
+
+    typo(actual).should.equal(expected)
+  })
+})
