@@ -1,4 +1,4 @@
-import { whiteList, default as sanitize } from 'xss';
+import sanitize, { whiteList } from 'xss';
 
 const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
 const vowel = '[аеёиоуыэюя]'

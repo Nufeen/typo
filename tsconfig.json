@@ -2,7 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "build"
+    "outDir": "build",
+    "target": "ESNext",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts"]
 }
