@@ -1,4 +1,4 @@
-import sanitize, { whiteList } from 'xss';
+import sanitize, { whiteList, IWhiteList } from 'xss';
 
 const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
 const vowel = '[аеёиоуыэюя]'
@@ -86,7 +86,8 @@ const patterns: Record<
 // typo :: String -> Object -> String
 export default function typo<T>(
   s: T,
-  options: Partial<typeof defaultOptions> = defaultOptions
+  options: Partial<typeof defaultOptions> = defaultOptions,
+  whiteListExtention?: IWhiteList,
 ): T | string {
   if (s == null || typeof s !== 'string') {
     return s
@@ -98,5 +99,5 @@ export default function typo<T>(
 
   const reducedP = P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
 
-  return sanitize(reducedP, { whiteList: { ...whiteList, nobr: [] } });
+  return sanitize(reducedP, { whiteList: { ...whiteList, nobr: [], ...whiteListExtention } });
 }
