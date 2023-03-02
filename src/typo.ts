@@ -1,4 +1,4 @@
-import sanitize, { whiteList, IWhiteList } from 'xss';
+import sanitize, { whiteList as defaultWhiteList, IWhiteList } from 'xss';
 
 const any = '[абвгдеёжзийклмнопрстуфхцчшщъыьэюя]'
 const vowel = '[аеёиоуыэюя]'
@@ -87,7 +87,7 @@ const patterns: Record<
 export default function typo<T>(
   s: T,
   options: Partial<typeof defaultOptions> = defaultOptions,
-  whiteListExtention?: IWhiteList,
+  whiteListExtention: IWhiteList = {},
 ): T | string {
   if (s == null || typeof s !== 'string') {
     return s
@@ -99,5 +99,21 @@ export default function typo<T>(
 
   const reducedP = P.reduce((acc, p) => acc.replace(p[0], p[1]), s)
 
-  return sanitize(reducedP, { whiteList: { ...whiteList, nobr: [], ...whiteListExtention } });
+  const mergedWhiteList: IWhiteList = { nobr: [], ...defaultWhiteList, ...whiteListExtention }
+  const uniqueWhiteListKeys = [...new Set(Object.keys(mergedWhiteList)).keys()]
+
+  const whiteList = uniqueWhiteListKeys.reduce((accWhiteList, key) => {
+    const mergedAllowedAttributes = [
+      ...(defaultWhiteList[key] || []),
+      ...(whiteListExtention[key] || [])
+    ]
+    const uniqueAllowedAttributes = [...new Set(mergedAllowedAttributes)]
+
+    return {
+      ...accWhiteList,
+      [key]: uniqueAllowedAttributes
+    }
+  }, {} as IWhiteList)
+
+  return sanitize(reducedP, { whiteList });
 }
