@@ -37,3 +37,19 @@
 ## 4.0.0
 
 - Fix XSS vulnerability by using `xss` library for sanitization
+
+## 4.0.1
+
+- Allows `nobr` tag
+
+## 4.0.2
+
+- Fix JS bundling
+
+## 4.1.0
+
+- Allow customizing allowed tags and attributes
+
+## 4.1.1
+
+- Fix deep merging allowed tags and attributes
