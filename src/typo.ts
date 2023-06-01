@@ -78,8 +78,10 @@ const patterns: Record<
   ],
 
   quotes: [
+    [new RegExp('\\="(\\S*)"', 'gmi'), '=\'$1\''], // prevents HTML attributes like href="https://github.com" from being broken
     [new RegExp(`"(${any}|[0-9])`, 'gmi'), `${openingQuote}$1`],
     [new RegExp(`"`, 'gmi'), closingQuote],
+    [new RegExp('\\=\'(\\S*)\'', 'gmi'), '="$1"'], // prevents HTML attributes like href="https://github.com" from being broken
   ],
 }
 

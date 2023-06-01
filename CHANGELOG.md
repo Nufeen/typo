@@ -53,3 +53,7 @@
 ## 4.1.1
 
 - Fix deep merging allowed tags and attributes
+
+## 4.1.2
+
+- Fix replacement of double quotes in HTML attributes (e.g. `href="https://github.com"` is no longer removed)

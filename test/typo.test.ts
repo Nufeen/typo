@@ -124,13 +124,20 @@ describe('Quotes', () => {
     let s2 = 'Голосование: «Быть» против «Не быть»'
     typo(s1, { quotes: true }).should.equal(s2)
   })
+
+  it('should preserve HTML attributes as is', () => {
+    const s1 = '<p>"Но об "одном" <a href="https://github.com" target="_blank">я не знал</a></p>'
+    const s2 = '<p>«Но об&nbsp;«одном» <a href="https://github.com" target="_blank">я не&nbsp;знал</a></p>'
+
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
 })
 
 describe('Tags sanitization', () => {
   it('should return <nobr /> as is', () => {
-    const actual = 'Но об одном <nobr>я не знал</nobr>'
-    const expected = 'Но&nbsp;об&nbsp;одном <nobr>я не&nbsp;знал</nobr>';
+    const s1 = 'Но об одном <nobr>я не знал</nobr>'
+    const s2 = 'Но&nbsp;об&nbsp;одном <nobr>я не&nbsp;знал</nobr>';
 
-    typo(actual).should.equal(expected)
+    typo(s1).should.equal(s2)
   })
 })
