@@ -141,3 +141,12 @@ describe('Tags sanitization', () => {
     typo(s1).should.equal(s2)
   })
 })
+
+describe('HTML Entries', () => {
+  it('replaces &nbsp;', () => {
+    const s1 = 'Но об&nbsp;одном я не&nbsp;знал';
+    const s2 = 'Но об одном я не знал';
+
+    typo(s1).should.equal(s2);
+  })
+})

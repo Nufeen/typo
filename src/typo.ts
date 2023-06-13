@@ -29,7 +29,7 @@ const patterns: Record<
   Array<[RegExp, string]>
 > = {
   common: [
-    [new RegExp("&nbsp;"), nonBreakingSpace],
+    [new RegExp("&nbsp;", "gi"), nonBreakingSpace],
     [new RegExp(" (-|–|—) ", "g"), `${nonBreakingSpace}${dash} `],
     [new RegExp(" {2}", "g"), " "],
     [new RegExp("-(й|я|е) ", "g"), `${nonBreakingHyphen}$1 `], // TODO TESTS

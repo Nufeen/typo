@@ -62,3 +62,7 @@
 
 - Breaking change: Remove XSS prevention to improve performance and reduce bundle size. Please sanitize the input/output beforehand
 - Breaking change: Replace HTML entires with Unicode characters to avoid using `dangerouslySetInnerHTML`
+
+## 5.0.1
+
+- Fix replacement of `&nbsp;` entries
