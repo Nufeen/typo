@@ -1,6 +1,6 @@
 {
   "name": "ru-typo",
-  "version": "4.1.2",
+  "version": "5.0.0",
   "description": "Russian typography script",
   "homepage": "https://github.com/Nufeen/typo#readme",
   "bugs": {
@@ -42,8 +42,5 @@
     "should": "^13.2.3",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"
-  },
-  "dependencies": {
-    "xss": "^1.0.14"
   }
 }

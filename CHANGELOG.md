@@ -57,3 +57,8 @@
 ## 4.1.2
 
 - Fix replacement of double quotes in HTML attributes (e.g. `href="https://github.com"` is no longer removed)
+
+## 5.0.0
+
+- Breaking change: Remove XSS prevention to improve performance and reduce bundle size. Please sanitize the input/output beforehand
+- Breaking change: Replace HTML entires with Unicode characters to avoid using `dangerouslySetInnerHTML`

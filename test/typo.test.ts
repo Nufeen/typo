@@ -34,12 +34,12 @@ describe('Common patterns', () => {
   describe('dashes', () => {
     it('should turn hanging dash to bound mdash', () => {
       let s1 = 'о - ло - ло'
-      let s2 = 'о&nbsp;&mdash; ло&nbsp;&mdash; ло'
+      let s2 = 'о — ло — ло'
       typo(s1).should.equal(s2)
     })
     it('should turn hanging middle dash to bound mdash', () => {
       let s1 = 'о - ло - ло'
-      let s2 = 'о&nbsp;&mdash; ло&nbsp;&mdash; ло'
+      let s2 = 'о — ло — ло'
       typo(s1).should.equal(s2)
     })
   })
@@ -51,12 +51,12 @@ describe('Common patterns: preposiciones', () => {
   // this part tests tricky cases instead
   it('should bind preposiciones', () => {
     let s1 = 'Да, но об одном я не знал'
-    let s2 = 'Да, но&nbsp;об&nbsp;одном я не&nbsp;знал'
+    let s2 = 'Да, но об одном я не знал'
     typo(s1).should.equal(s2)
   })
   it('should bind preposiciones', () => {
     let s1 = 'Но нет'
-    let s2 = 'Но&nbsp;нет'
+    let s2 = 'Но нет'
     typo(s1).should.equal(s2)
   })
   it('should bind preposiciones', () => {
@@ -66,36 +66,36 @@ describe('Common patterns: preposiciones', () => {
   })
   it('should bind preposiciones', () => {
     let s1 = 'Но об одном я не знал'
-    let s2 = 'Но&nbsp;об&nbsp;одном я не&nbsp;знал'
+    let s2 = 'Но об одном я не знал'
     typo(s1).should.equal(s2)
   })
   it('should bind preposiciones', () => {
     let s1 = 'Но о том не узнает никто'
-    let s2 = 'Но&nbsp;о&nbsp;том не&nbsp;узнает никто'
+    let s2 = 'Но о том не узнает никто'
     typo(s1).should.equal(s2)
   })
 })
 
 describe('Digits', () => {
   it('should bind digits to both sides', () => {
-    typo(' 0 ', { digits: true }).should.equal('&nbsp;0&nbsp;')
-    typo(' 1 ', { digits: true }).should.equal('&nbsp;1&nbsp;')
-    typo(' 12 ', { digits: true }).should.equal('&nbsp;12&nbsp;')
+    typo(' 0 ', { digits: true }).should.equal(' 0 ')
+    typo(' 1 ', { digits: true }).should.equal(' 1 ')
+    typo(' 12 ', { digits: true }).should.equal(' 12 ')
   })
 })
 
 describe('DigitsR', () => {
   it('should bind digits to LEFT side', () => {
-    typo(' 0 ', { digitsR: true }).should.equal(' 0&nbsp;')
-    typo(' 1 ', { digitsR: true }).should.equal(' 1&nbsp;')
-    typo(' 12 ', { digitsR: true }).should.equal(' 12&nbsp;')
+    typo(' 0 ', { digitsR: true }).should.equal(' 0 ')
+    typo(' 1 ', { digitsR: true }).should.equal(' 1 ')
+    typo(' 12 ', { digitsR: true }).should.equal(' 12 ')
   })
 })
 
 describe('Hyphens', () => {
   it('should add hyphens', () => {
     let s1 = 'Но об одном я не знал'
-    let s2 = 'Но&nbsp;об&nbsp;од&shy;ном я не&nbsp;знал'
+    let s2 = 'Но об од­ном я не знал'
     typo(s1, { hyphens: true }).should.equal(s2)
   })
 })
@@ -109,13 +109,13 @@ describe('Quotes', () => {
 
   it('should handle simple case of nested quotes', () => {
     let s1 = 'Обратиться в ООО "Компания "Рога и Ко."'
-    let s2 = 'Обратиться в&nbsp;ООО «Компания «Рога и&nbsp;Ко.»'
+    let s2 = 'Обратиться в ООО «Компания «Рога и Ко.»'
     typo(s1, { quotes: true }).should.equal(s2)
   })
 
   it('should handle quoted digits', () => {
     let s1 = 'Не стоит использовать "1984" как инструкцию'
-    let s2 = 'Не&nbsp;стоит использовать «1984» как инструкцию'
+    let s2 = 'Не стоит использовать «1984» как инструкцию'
     typo(s1, { quotes: true }).should.equal(s2)
   })
 
@@ -127,7 +127,7 @@ describe('Quotes', () => {
 
   it('should preserve HTML attributes as is', () => {
     const s1 = '<p>"Но об "одном" <a href="https://github.com" target="_blank">я не знал</a></p>'
-    const s2 = '<p>«Но об&nbsp;«одном» <a href="https://github.com" target="_blank">я не&nbsp;знал</a></p>'
+    const s2 = '<p>«Но об «одном» <a href="https://github.com" target="_blank">я не знал</a></p>'
 
     typo(s1, { quotes: true }).should.equal(s2)
   })
@@ -136,7 +136,7 @@ describe('Quotes', () => {
 describe('Tags sanitization', () => {
   it('should return <nobr /> as is', () => {
     const s1 = 'Но об одном <nobr>я не знал</nobr>'
-    const s2 = 'Но&nbsp;об&nbsp;одном <nobr>я не&nbsp;знал</nobr>';
+    const s2 = 'Но об одном <nobr>я не знал</nobr>';
 
     typo(s1).should.equal(s2)
   })
