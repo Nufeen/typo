@@ -66,3 +66,7 @@
 ## 5.0.1
 
 - Fix replacement of `&nbsp;` entries
+
+## 5.0.2
+
+— Fix quotes replacement for HTML attributes with spaces
