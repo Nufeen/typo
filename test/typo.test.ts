@@ -126,8 +126,15 @@ describe('Quotes', () => {
   })
 
   it('should preserve HTML attributes as is', () => {
-    const s1 = '<p>"Но об "одном" <a href="https://github.com" target="_blank">я не знал</a></p>'
-    const s2 = '<p>«Но об «одном» <a href="https://github.com" target="_blank">я не знал</a></p>'
+    const s1 = '<p>"Но об "одном" <a href="https://github.com" target="_blank" rel="nofollow">я не знал</a></p>'
+    const s2 = '<p>«Но об «одном» <a href="https://github.com" target="_blank" rel="nofollow">я не знал</a></p>'
+
+    typo(s1, { quotes: true }).should.equal(s2)
+  })
+
+  it('should preserve HTML attributes containing spaces as is', () => {
+    const s1 = '<p>"Но об "одном" <a class="comment first" href="https://github.com" target="_blank" rel="nofollow noopener norefferer">я не знал</a></p>'
+    const s2 = '<p>«Но об «одном» <a class="comment first" href="https://github.com" target="_blank" rel="nofollow noopener norefferer">я не знал</a></p>'
 
     typo(s1, { quotes: true }).should.equal(s2)
   })
