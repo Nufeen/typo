@@ -6,7 +6,7 @@ import typescript from '@rollup/plugin-typescript'
 export default {
   input: 'src/typo.ts',
   output: {
-    format: 'cjs',
+    format: 'esm',
     exports: 'auto',
     dir: 'build',
   },

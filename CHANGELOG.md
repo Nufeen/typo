@@ -70,3 +70,7 @@
 ## 5.0.2
 
 — Fix quotes replacement for HTML attributes with spaces
+
+## 6.0.0
+
+— Breaking change: Replaces CJS modules with ESM modules

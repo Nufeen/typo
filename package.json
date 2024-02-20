@@ -1,6 +1,6 @@
 {
   "name": "ru-typo",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "Russian typography script",
   "homepage": "https://github.com/Nufeen/typo#readme",
   "bugs": {
@@ -12,8 +12,16 @@
   },
   "license": "WTFPL",
   "author": "Nufeen",
+  "type": "module",
   "main": "build/typo.js",
+  "module": "build/typo.js",
   "types": "build/typo.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/typo.js",
+      "type": "./build/typo.d.ts"
+    }
+  },
   "directories": {
     "lib": "./src",
     "test": "./test"
